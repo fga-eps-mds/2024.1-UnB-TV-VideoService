@@ -1,12 +1,9 @@
-import uvicorn, sys
 from fastapi import FastAPI
-from dotenv import load_dotenv
 from fastapi.middleware.cors import CORSMiddleware
 from database import init_db  # Adicione a função de inicialização do banco de dados
 
 
 
-load_dotenv()
 
 from controller import commentController, scheduleController, savedVideosController, recordController, recommendationController
 from controller.savedVideosController import WatchLater
@@ -45,9 +42,9 @@ app.include_router(prefix="/api", router=recommendationController.Recommendation
 async def root():
     return {"message": "Hello from Video Service"}
 
-if __name__ == '__main__': # pragma: no cover
-  port = 8001
-  if (len(sys.argv) == 2):
-    port = sys.argv[1]
+# if __name__ == '__main__': # pragma: no cover
+#   port = 8001
+#   if (len(sys.argv) == 2):
+#     port = sys.argv[1]
 
-  uvicorn.run('main:app', reload=True, port=int(port), host="0.0.0.0")
+#   uvicorn.run('main:app', reload=True, port=int(port), host="0.0.0.0")
