@@ -1,11 +1,9 @@
-import uvicorn, sys
 from fastapi import FastAPI
-from dotenv import load_dotenv
 from fastapi.middleware.cors import CORSMiddleware
 
-load_dotenv()
 
-from controller import commentController, scheduleController
+# from src.controller import commentController, scheduleController
+from src.controller import  scheduleController
 
 # Desativado os os comentarios nos videos
 # from database import SessionLocal, engine
@@ -32,9 +30,9 @@ app.include_router(prefix="/api", router=scheduleController.schedule)
 async def root():
     return {"message": "Hello from Video Service"}
 
-if __name__ == '__main__': # pragma: no cover
-  port = 8001
-  if (len(sys.argv) == 2):
-    port = sys.argv[1]
+# if __name__ == '__main__': # pragma: no cover
+#   port = 8001
+#   if (len(sys.argv) == 2):
+#     port = sys.argv[1]
 
-  uvicorn.run('main:app', reload=True, port=int(port), host="0.0.0.0")
+#   uvicorn.run('main:app', reload=True, port=int(port), host="0.0.0.0")

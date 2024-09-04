@@ -5,8 +5,8 @@ from bs4 import BeautifulSoup
 from unidecode import unidecode
 from starlette.responses import JSONResponse
 
-from utils import enumeration
-from constants import errorMessages
+from src.utils import enumeration
+from src.constants import errorMessages
 
 schedule = APIRouter(
   prefix="/schedule"
